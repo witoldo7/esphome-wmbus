@@ -41,6 +41,7 @@
     X(Energy,KWH)             \
     X(Reactive_Energy,KVARH)  \
     X(Apparent_Energy,KVAH)   \
+    X(Reactive_Power,KVAR)  \
     X(Power,KW)               \
     \
     X(Volume,M3)              \
@@ -81,13 +82,17 @@ enum class Quantity
     X(CD,cd,"cd",LuminousIntensity,"candela")  \
     \
     X(KWH,kwh,"kWh",Energy,"kilo Watt hour")   \
+    X(WH,wh,"Wh",Energy,"Watt hour")   \
     X(MJ,mj,"MJ",Energy,"Mega Joule")          \
     X(GJ,gj,"GJ",Energy,"Giga Joule")          \
     X(KVARH,kvarh,"kVARh",Reactive_Energy,"kilo volt amperes reactive hour") \
     X(KVAH,kvah,"kVAh",Apparent_Energy,"kilo volt amperes hour")        \
     X(M3C,m3c,"m³°C",Energy,"cubic meter celsius")                      \
     \
+    X(W,w,"W",Power,"Watt")                                     \
     X(KW,kw,"kW",Power,"kilo Watt")                                     \
+    X(VAR,var,"Var",Reactive_Power,"Var")                                     \
+    X(KVAR,kvar,"kVar",Reactive_Power,"kilo Var")                                     \
     X(M3CH,m3ch,"m³°C/h",Power,"cubic meter celsius per hour")          \
     \
     X(M3,m3,"m³",Volume,"cubic meter")                                  \
