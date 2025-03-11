@@ -1896,7 +1896,8 @@ double vifScale(int vif)
         // 7b00 33632 -> 3363.2 MWh -> 3363200 KWh
         // 7b01 33632 -> 33632 MWh -> 33632000 KWh
     case 0x7b00:
-    case 0x7b01: { double exp = (vif & 0x1) + 2; return pow(10.0, -exp); }
+    case 0x7b01:{ double exp = (vif & 0x1) + 2; return pow(10.0, -exp); }
+    case 0x7b02: return 1000.0;
 
                // relative humidity is a dimensionless value.
     case 0x7b1a: return 10.0; // Relative humidity 0.1 %
