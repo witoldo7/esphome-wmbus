@@ -3024,7 +3024,8 @@ std::string vifType(int vif) {
     return "Active Energy 0.1 MWh";
   case 0x7B01:
     return "Active Energy 1 MWh";
-
+  case 0x7B02:
+    return "Reactive Energy 0.1 MWh";
   case 0x7B1A:
     return "Relative humidity 0.1%";
   case 0x7B1B:
@@ -3326,16 +3327,22 @@ double vifScale(int vif) {
     // 7b00 33632 -> 3363.2 MWh -> 3363200 KWh
     // 7b01 33632 -> 33632 MWh -> 33632000 KWh
   case 0x7b00:
-  case 0x7b01: {
+  case 0x7b01:{
     double exp = (vif & 0x1) + 2;
     return pow(10.0, -exp);
   }
+  case 0x7b02:
+    return 1000.0;
 
     // Active energy 0.1 or 1 GJ normalize to 100 MJ or 1000 MJ
     // 7b08 19 -> 1.9 G -> 1 900 KWh
     // 7b09 19 -> 19 GJ -> 19 000 MJ
   case 0x7b08:
   case 0x7b09: {
+    double exp = (vif & 0x1) + 2;
+    return pow(10.0, -exp);
+  }
+  case 0x7b14:{
     double exp = (vif & 0x1) + 2;
     return pow(10.0, -exp);
   }
